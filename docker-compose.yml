@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  gateway:
+    container_name: gateway
+    restart: always
+    build: ./Gateway
+    ports:
+      - "5000:5000"
+  database:
+    container_name: database
+    restart: always
+    build: ./database
+    ports:
+      - "5001:5001"
+  usuarios:
+    container_name: usuarios
+    restart: always
+    build: ./Usuarios
+    ports:
+      - "5002:5002"
+  salones:
+    container_name: salones
+    restart: always
+    build: ./Salones
+    ports:
+      - "5003:5003"
+        films:
+    container_name: eventos
+    restart: always
+    build: ./Eventos
+    ports:
+      - "5004:5004"
