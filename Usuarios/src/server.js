@@ -7,7 +7,7 @@ server.use(morgan('dev'));
 
 server.use(express.json());
 
-require('dotenv').config();
+// require('dotenv').config();
 //const {CORS} = process.env;
 //console.log("cors: ", CORS);
 server.use((req, res, next)=>{
