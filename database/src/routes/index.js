@@ -6,7 +6,7 @@ router.get("/:model", async (req,res) => {
     const {model} = req.params;
     const {email} = req.query;
     let response = {};
-    console.log(model, email);
+    console.log(model, req.query);
     if(email) 
         response = await database[model].getByEmail(email)
     else 
