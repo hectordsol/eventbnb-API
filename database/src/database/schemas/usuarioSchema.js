@@ -22,6 +22,7 @@ const usuarioSchema = new Schema(
       .populate("salones",["_id","nombre","domicilio"])
   };
   usuarioSchema.statics.getByEmail = async function (email){
+    console.log(email);
     return await this.findOne({email});
     };
   usuarioSchema.statics.insert = async function (usuario){
