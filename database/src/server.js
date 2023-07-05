@@ -8,6 +8,7 @@ server.use(morgan("dev"));
 // require('dotenv').config();
 // const {CORS} = process.env;
 // console.log("cors: ", CORS);
+server.use(express.urlencoded({ extended: true }));
 server.use((req, res, next)=>{
     res.header('Access-Control-Allow-Origin', '*');//CORS); // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Credentials', 'true');
