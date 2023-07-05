@@ -2,7 +2,9 @@ const Usuario = require('../data');
 const {response} = require('../utils');
 
 module.exports = async (req, res) => {
-    console.log(req.query);
-    const user = await Usuario.list();
-    response(res, 200, user);
+    const {email} =req.query;
+    let data={};
+    if(email) data = await Usuario.getByEmail(email);
+    else   data = await Usuario.list();
+    response(res, 200, data);
 }
