@@ -13,6 +13,10 @@ module.exports = {
         const response = await axios.get(`http://database:5001/Usuario/${id}`);
         return response.data;
     },
+    getByEmail: async(email)=>{
+        const response = await axios.get(`http://database:5001/Usuario/?email=${email}`);
+        return response.data;
+    },
     change: async(id,usuario)=>{
         const response = await axios.put(`http://database:5001/Usuario/${id}`,usuario);
         return response.data;
