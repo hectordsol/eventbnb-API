@@ -4,7 +4,12 @@ const database = require("../database");
 const router = Router();
 router.get("/:model", async (req,res) => {
     const {model} = req.params;
-    const response = await database[model].list();
+    const {email} = req.query;
+    let response = {};
+    if(email) 
+        response = await database[model].getByEmail(email)
+    else 
+        response = await database[model].list();
     res.status(200).json(response);
 });
 router.get("/:model/:id", async (req,res) => {

@@ -21,6 +21,9 @@ const usuarioSchema = new Schema(
     return await this.findById(id)  //findOne({_id}) es lo mismo, y sirve para otras propiedades
       .populate("salones",["_id","nombre","domicilio"])
   };
+  usuarioSchema.statics.getByEmail = async function (email){
+    return await this.findOne({email});
+    };
   usuarioSchema.statics.insert = async function (usuario){
     return await this.create(usuario);
   };
