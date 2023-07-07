@@ -22,6 +22,7 @@ module.exports = {
         return response.data;
     },
     remove: async(id)=>{
+        console.log("id: ",id);
         const response = await axios.delete(`http://database:5001/Usuario/${id}`);
         return response.data;
     }
