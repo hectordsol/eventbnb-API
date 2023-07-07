@@ -32,6 +32,7 @@ router.post("/:model", async (req, res) =>{
 });
 router.delete("/:model/:id", async (req,res) => {
     const {model, id} = req.params;
+    console.log(model,id);
     const response = await database[model].remove(id);
     res.status(200).json(response);
 });
