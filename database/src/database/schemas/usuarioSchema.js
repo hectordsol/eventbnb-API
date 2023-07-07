@@ -53,7 +53,7 @@ const usuarioSchema = new Schema(
   usuarioSchema.statics.change = async function (id, usuario){
     return await this.findByIdAndUpdate(id, usuario,{new:true});
   };
-  usuarioSchema.statics.remove = async function (id) {
+  usuarioSchema.statics.remover = async function (id) {
     console.log(id);
     return await this.findByIdAndRemove(id);
   };
