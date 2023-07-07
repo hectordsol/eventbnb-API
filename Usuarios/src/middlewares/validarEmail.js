@@ -2,9 +2,10 @@ const Usuario = require('../data');
 const {ClientError} =require('../utils/errors')
 module.exports= async (req,res,next)=>{
     let message='';
+    let data={};
     const {email}=req.body;
     if(esEmail(email)) 
-    data = await Usuario.getByEmail(email);
+        data = await Usuario.getByEmail(email);
     console.log("chequeo de Email: ",data);
     if(data) message="Usuario ya existe";
     if (!email) message='Email en blanco. ';
