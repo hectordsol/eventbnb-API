@@ -1,30 +1,30 @@
 const {Schema}=require("mongoose");
 const usuarioSchema = new Schema(
 {
-    nombre:
-    {
-      type: String,
-      required: [true, "El nombre es requerido"],
-      minLength: [1, "El nombre debe tener al menos 1 caracter"],
-      maxLength: [20, "El nombre puede tener hasta 20 caracteres"],
-    },
-    apellido:
-     {
-      type: String,
-      required: [true, "El apellido es requerido"],
-      minLength: [1, "El nombre debe tener al menos 1 caracter"],
-      maxLength: [20, "El nombre puede tener hasta 20 caracteres"],
-    },
-    email: 
-    {
-      type: String,
-      unique: true,
-      required: [true, "Email es requerido"],
-      match: [
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        "Email es invalido",
-      ],
-    },
+    nombre: String,
+    // {
+    //   type: String,
+    //   required: [true, "El nombre es requerido"],
+    //   minLength: [1, "El nombre debe tener al menos 1 caracter"],
+    //   maxLength: [20, "El nombre puede tener hasta 20 caracteres"],
+    // },
+    apellido: String,
+    //  {
+    //   type: String,
+    //   required: [true, "El apellido es requerido"],
+    //   minLength: [1, "El nombre debe tener al menos 1 caracter"],
+    //   maxLength: [20, "El nombre puede tener hasta 20 caracteres"],
+    // },
+    email: String, 
+    // {
+    //   type: String,
+    //   unique: true,
+    //   required: [true, "Email es requerido"],
+    //   match: [
+    //     /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+    //     "Email es invalido",
+    //   ],
+    // },
     password: String,
     telefono: String,
     fechaNacimiento: String,
