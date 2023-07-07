@@ -5,7 +5,7 @@ module.exports= async (req,res,next)=>{
     if(esEmail(email)) 
     data = await Usuario.getByEmail(email);
     console.log("chequeo de Email: ",data);
-    if(data.data) return next();
+    if(!data) return next();
     let message='';
     if (!email) message='Email en blanco. ';
     if (email.trim() ==="") message='Email sin datos. ';
