@@ -1,17 +1,17 @@
 const Usuario = require('../data');
 const {ClientError} =require('../utils/errors')
 module.exports= async (req,res,next)=>{
+    let message='';
     const {email}=req.body;
     if(esEmail(email)) 
     data = await Usuario.getByEmail(email);
     console.log("chequeo de Email: ",data);
-    if(!data) return next();
-    let message='';
+    if(data) message="Usuario ya existe";
     if (!email) message='Email en blanco. ';
     if (email.trim() ==="") message='Email sin datos. ';
-    if (!apellido || nombre.length > 20) message=message + 'Error en el apellido. ';
     if (!esEmail(email)) message=message+ 'Correo no valido.';
-    throw new ClientError(message, 401);
+    if(message) throw new ClientError(message, 401);
+    next();
 }
 function esEmail(email){
 return email.match
