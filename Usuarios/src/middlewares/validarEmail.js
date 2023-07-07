@@ -10,6 +10,7 @@ module.exports= async (req,res,next)=>{
     if (!email) message='Email en blanco. ';
     if (email.trim() ==="") message='Email sin datos. ';
     if (!esEmail(email)) message=message+ 'Correo no valido.';
+    console.log("MENSAJE: ", message);
     if(message) throw new ClientError(message, 401);
     next();
 }
