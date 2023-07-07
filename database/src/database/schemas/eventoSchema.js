@@ -27,7 +27,7 @@ const eventoSchema = new Schema(
   eventoSchema.statics.change = async function (id, evento){
     return await this.findByIdAndUpdate(id, evento,{new:true});
   };
-  eventoSchema.statics.remove = async function (id) {
+  eventoSchema.statics.remover = async function (id) {
     return await this.findByIdAndRemove(id);
   };
   module.exports = eventoSchema;

@@ -23,7 +23,7 @@ const reservaSchema = new Schema(
   reservaSchema.statics.change = async function (id, reserva){
     return await this.findByIdAndUpdate(id, reserva,{new:true});
   };
-  reservaSchema.statics.remove = async function (id) {
+  reservaSchema.statics.remover = async function (id) {
     return await this.findByIdAndRemove(id);
   };
   module.exports = reservaSchema;

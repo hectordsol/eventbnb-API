@@ -26,7 +26,7 @@ const salonSchema = new Schema(
   salonSchema.statics.change = async function (id, salon){
     return await this.findByIdAndUpdate(id, salon,{new:true});
   };
-  salonSchema.statics.remove = async function (id) {
+  salonSchema.statics.remover = async function (id) {
     return await this.findByIdAndRemove(id);
   };  
 module.exports = salonSchema;

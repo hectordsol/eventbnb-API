@@ -24,7 +24,7 @@ const reviewSchema = new Schema(
   reviewSchema.statics.change = async function (id, review){
     return await this.findByIdAndUpdate(id, review,{new:true});
   };
-  reviewSchema.statics.remove = async function (id) {
+  reviewSchema.statics.remover = async function (id) {
     return await this.findByIdAndRemove(id);
   };
   module.exports = reviewSchema;
