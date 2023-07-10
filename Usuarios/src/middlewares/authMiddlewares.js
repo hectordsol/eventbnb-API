@@ -19,12 +19,11 @@ module.exports = async (req, res, next) => {
         if (verify) { // 'LOGUEADO'            
             next();
         } else {
-            msgError = 'credenciales invalidas';
+            throw new ClientError("credenciales invalidas", 401)
         }
     } else { // 'REGISTRAR USER'
         next();
     }
     console.log("MENSAJE: ", msgError);
     if (msgError) throw new ClientError(msgError, 401);
-    next();
 }
