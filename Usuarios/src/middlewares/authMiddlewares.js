@@ -1,4 +1,5 @@
 require('../data/index.js');
+const Usuario = require('../data');
 const { ClientError } = require('../utils/errors/index.js')
 const { EmailValidator } = require('../validators/EmailValidator.js');
 
