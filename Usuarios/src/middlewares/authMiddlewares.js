@@ -18,16 +18,16 @@ module.exports = async (req, res, next) => {
         let verify = false; // cambiar
         if (password === user.password) verify = true; // cambiar
         if (verify) { // 'LOGUEADO'           
-            next(message);
+            return next(message);
         } 
         else {
             message = 'credenciales invalidas';
-            next(message);
+            return next(message);
         }
     } 
     else { // 'REGISTRAR USER'
         message='create';
-        next(message);
+        return next(message);
     }
     console.log("MENSAJE: ERROR");
 //    if(message) throw new ClientError(message, 401);
