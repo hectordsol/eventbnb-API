@@ -1,3 +1,4 @@
+const Usuario = require('../data');
 const {ClientError} =require('../utils/errors')
 module.exports= async(req,res,next)=>{
     const {nombre,apellido,email,password}=req.body;
