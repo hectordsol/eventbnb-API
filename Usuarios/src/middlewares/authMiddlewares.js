@@ -1,7 +1,7 @@
 
 const Usuario = require('../data');
-const { ClientError } = require('../utils/errors/index.js')
-const { EmailValidator } = require('../validators/EmailValidator.js');
+const { ClientError } = require('../utils/errors')
+const { EmailValidator } = require('../validators');
 
 module.exports = async (req, res, next) => {
     const { email, password } = req.body;
