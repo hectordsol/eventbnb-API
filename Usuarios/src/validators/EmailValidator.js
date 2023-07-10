@@ -1,4 +1,4 @@
-export class EmailValidator {
+ class EmailValidator {
     #email;
     constructor(email) {
       this.#email = email;
@@ -13,3 +13,4 @@ export class EmailValidator {
       return msg;
     }
   }
+  module.exports = {EmailValidator};
