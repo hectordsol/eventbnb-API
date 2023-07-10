@@ -1,4 +1,4 @@
-require('../data/index.js');
+
 const Usuario = require('../data');
 const { ClientError } = require('../utils/errors/index.js')
 const { EmailValidator } = require('../validators/EmailValidator.js');
@@ -10,20 +10,26 @@ module.exports = async (req, res, next) => {
     let user = {};
     const validator = new EmailValidator(email);
     msgError = validator.validate();
-    user = await Usuario.getByEmail(email);
-    console.log("usuario: ",user);
-    if (user) {
+    try{
+        user = await Usuario.getByEmail(email);
+        console.log("usuario: ",user);
+        if (user) {
         // const verify = comparePassword(user.password, password);
         let verify = false; // cambiar
         if (password === user.password) verify = true; // cambiar
         if (verify) { // 'LOGUEADO'            
             next();
         } else {
-            throw new ClientError("credenciales invalidas", 401)
+            msgError = 'credenciales invalidas';
         }
     } else { // 'REGISTRAR USER'
         next();
     }
     console.log("MENSAJE: ", msgError);
     if (msgError) throw new ClientError(msgError, 401);
+
+}    
+catch(err){
+    console.log(err);
+}
 }
