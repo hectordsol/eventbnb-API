@@ -7,5 +7,5 @@ router.get('/', controllers.getUsuarios);
 router.get('/:id', controllers.getUsuario);
 router.put('/:id', middlewares.usuarioValidation, controllers.changeUsuario);
 router.delete('/:id', controllers.deleteUsuario);
-router.post('/',/*middlewares.authMiddlewares,middlewares.usuarioValidation,*/ controllers.createUsuario);
+router.post('/',middlewares.authMiddlewares,/*middlewares.usuarioValidation,*/ controllers.createUsuario);
 module.exports = router;    

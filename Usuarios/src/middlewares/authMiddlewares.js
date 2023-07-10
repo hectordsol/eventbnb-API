@@ -6,24 +6,29 @@ const { ClientError } = require('../utils/errors')
 module.exports = async (req, res, next) => {
     const { email, password } = req.body;
     console.log(email, password);
-    let message = '';
+    let message = 'login';
     let user = {};
     // const validator = new EmailValidator(email);
     // msgError = validator.validate();
-        user = await Usuario.getByEmail(email);
-        console.log("usuario: ",user);
-        if (user) {
+    user = await Usuario.getByEmail(email);
+    console.log("usuario: ",user);
+    if (user) 
+    {
         // const verify = comparePassword(user.password, password);
         let verify = false; // cambiar
         if (password === user.password) verify = true; // cambiar
-        if (verify) { // 'LOGUEADO'            
-            next();
-        } else {
+        if (verify) { // 'LOGUEADO'           
+            next(message);
+        } 
+        else {
             message = 'credenciales invalidas';
+            next(message);
         }
-    } else { // 'REGISTRAR USER'
-        next();
+    } 
+    else { // 'REGISTRAR USER'
+        message='create';
+        next(message);
     }
-    console.log("MENSAJE: ", message);
-    if(message) throw new ClientError(message, 401);
+    console.log("MENSAJE: ERROR");
+//    if(message) throw new ClientError(message, 401);
 }
