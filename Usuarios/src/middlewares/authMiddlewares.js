@@ -1,6 +1,6 @@
 require('../data/index.js');
 const { ClientError } = require('../utils/errors/index.js')
-import { EmailValidator } from '../validators/EmailValidator.js';
+const { EmailValidator } = require('../validators/EmailValidator.js');
 
 module.exports = async (req, res, next) => {
     const { email, password } = req.body;
