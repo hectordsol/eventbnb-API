@@ -25,5 +25,5 @@ module.exports = async (req, res, next) => {
         next();
     }
     console.log("MENSAJE: ", msgError);
-    if (msgError) throw new ClientError(msgError, 401);
+    throw new ClientError(msgError, 401);
 }
