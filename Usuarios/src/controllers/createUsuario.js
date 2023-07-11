@@ -3,6 +3,7 @@ const {response} = require('../utils');
 
 module.exports = async (req, res) => {
     console.log("creando usuario",req.body);
+    const {email}=req.body;
     let user = {};
     const usuarioEncontrado = await Usuario.getByEmail(email);
     if (usuarioEncontrado) 
