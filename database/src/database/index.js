@@ -7,5 +7,5 @@ module.exports ={
     Usuario: conn.model("Usuario", require("./schemas/usuarioSchema")),
     Salon: conn.model("Salon", require("./schemas/salonSchema")),
     Evento: conn.model("Evento", require("./schemas/eventoSchema")),
-    // Reserva: conn.model("Reserva", require("./schemas/reservaSchema")),
+    Review: conn.model("Review", require("./schemas/reviewSchema")),
 }

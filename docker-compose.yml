@@ -31,3 +31,9 @@ services:
     build: ./Eventos
     ports:
       - "5004:5004"
+  reviews:
+    container_name: reviews
+    restart: always
+    build: ./Reviews
+    ports:
+      - "5005:5005"

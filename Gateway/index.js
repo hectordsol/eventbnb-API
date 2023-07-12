@@ -38,6 +38,14 @@ server.use('/eventos', createProxyMiddleware
     }
    )
 );
+server.use('/reviews', createProxyMiddleware
+   (
+    {
+	target:"http://reviews:5005",
+	changeOrigin:true
+    }
+   )
+);
 
 server.use('*',(req, res)=>{
     res.status(405).send('UPS in Gateway');
