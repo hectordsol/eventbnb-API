@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
                 apellido,
                 email,
                 password: hashPassword,
-                usergoogle: loginGoogle
+                google: loginGoogle
             });
         console.log("USUARIO CREADO: ",user);
     }

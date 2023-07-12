@@ -26,6 +26,7 @@ const usuarioSchema = new Schema(
     //   ],
     // },
     password: String,
+    google: Boolean,
     telefono: String,
     fechaNacimiento: String,
     domicilio: String,
