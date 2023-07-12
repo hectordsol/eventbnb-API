@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
     }
     const token = jwt.sign({
             exp: Math.floor(Date.now()/1000)+ (60 * 60 *24),
-            user
+            email
         },SECRETO);
     const serialized = serialize('mytokenUsuario',token,{
         httpOnly:true,
