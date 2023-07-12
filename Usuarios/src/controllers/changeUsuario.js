@@ -1,5 +1,6 @@
 const Usuario = require('../data');
 const HASH = 13;
+const bcrypt = require('bcryptjs');
 const {response} = require('../utils');
 
 module.exports = async (req, res) => {
