@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
     user = await Usuario.getByEmail(email);
     if (user) {
         if (loginGoogle) {console.log("Login GOOGLE"); return next();}
-        const verify = bcrypt.compare(password, user.password);
+        const verify = await bcrypt.compare(password, user.password);
         console.log("VERIFY : -> ",verify);
         if (verify) { // 'LOGUEADO'
             console.log("loguin valido");        
