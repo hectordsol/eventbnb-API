@@ -4,7 +4,7 @@ const reservaSchema = new Schema(
     _id: String,
     Fecha_inicio_hora: Date,
     Fecha_fin_hora: Date,
-    cliente: {type: String, ref: "User"},
+    cliente: {type: String, ref: "Usuario"},
     salon: {type: String, ref: "Salon"}
   });
   reservaSchema.statics.list = async function (){

@@ -5,7 +5,7 @@ const eventoSchema = new Schema(
     tipo_evento: String,
     Fecha_inicio: String,
     Fecha_fin: String,
-    clientes: [{type: String, ref: "User"}],
+    clientes: [{type: String, ref: "Usuario"}],
     salon: {type: String, ref: "Salon"},
     // review: {type: String, ref: "Review"}
   });

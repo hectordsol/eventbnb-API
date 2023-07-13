@@ -5,7 +5,7 @@ const reviewSchema = new Schema(
     comentario: String,
     puntaje: String,
     fecha: Date,
-    cliente: {type: String, ref: "User"},
+    cliente: {type: String, ref: "Usuario"},
     evento: {type: String, ref: "Evento"}
   });
   reviewSchema.statics.list = async function (){
