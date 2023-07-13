@@ -20,7 +20,7 @@ const salonSchema = new Schema(
     pileta: Boolean,
     descripcion: String,
 
-    propietario: {type: String, ref: "User"},
+    propietario: {type: Schema.Types.ObjectId, ref: "User"},
     reviews: [{type: String, ref: "Review"}],
     eventos: [{type: String, ref: "Evento"}]
 
