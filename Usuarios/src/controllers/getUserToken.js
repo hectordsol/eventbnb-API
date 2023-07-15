@@ -3,10 +3,10 @@ const Usuario = require('../data');
 const {response} = require('../utils');
 const SECRETO = 'elsecreto';
 module.exports = (req, res) => {
-  console.log(req.headers);
-  const authHeader = req.headers['Authorization'];
+  const authHeader = req.headers.authorization;
+  console.log("authHeader",authHeader);
   const token = authHeader && authHeader.split(' ')[1];
-
+  console.log("token: ",token);
   if (!token) {
     return response(res,401,"No hay token");
   }
