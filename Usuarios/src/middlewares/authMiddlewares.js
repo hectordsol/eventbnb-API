@@ -1,10 +1,12 @@
 const bcrypt = require('bcryptjs');
 const Usuario = require('../data');
 const { response } = require('../utils');
+
 // const { EmailValidator } = require('../validators');
 
 module.exports = async (req, res, next) => {
-    const { email, password, loginGoogle } = req.body;
+    const { email, password, loginGoogle } = res.user;
+
     console.log(email, password," login Google ?", loginGoogle);
     let message = '';
     let user = {};
@@ -28,5 +30,5 @@ module.exports = async (req, res, next) => {
     else { // 'REGISTRAR USER'
         console.log("crear usuario validando")
         return next();
-    }
+    }        
 }
