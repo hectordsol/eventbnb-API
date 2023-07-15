@@ -3,8 +3,8 @@ const Usuario = require('../data');
 const {response} = require('../utils');
 const SECRETO = 'elsecreto';
 module.exports = (req, res) => {
-
-  const authHeader = req.headers['authorization'];
+  console.log(req.headers);
+  const authHeader = req.headers['Authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
