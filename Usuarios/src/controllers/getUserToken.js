@@ -1,4 +1,3 @@
-const Usuario = require('../data');
 const jwt = require('jsonwebtoken');
 const Usuario = require('../data');
 const {response} = require('../utils');
