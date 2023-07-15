@@ -5,7 +5,7 @@ const { response } = require('../utils');
 // const { EmailValidator } = require('../validators');
 
 module.exports = async (req, res, next) => {
-    const { email, password, loginGoogle } = res.user;
+    const { email, password, loginGoogle } = req.body;
 
     console.log(email, password," login Google ?", loginGoogle);
     let message = '';
