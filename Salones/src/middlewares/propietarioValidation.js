@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { response } = require('../utils');
-const { validate } = require('uuid');
+const ObjectId = require('mongoose').Types.ObjectId;
 module.exports= async(req,res,next)=>{
     const {propietario}=req.body;
 
@@ -9,7 +9,12 @@ module.exports= async(req,res,next)=>{
     if(usuarioEncontrado) return next();
     else return response(res,404,'Error id usuario propietario no encontrado');
 }
-function isValidMongoDBUUID(id) {
-    console.log("validacion de id: ",id)
-    return validate(id);
-  }
+function isValidMongoDBUUID(id){
+     
+    if(ObjectId.isValid(id)){
+        if((String)(new ObjectId(id)) === id)
+            return true;       
+        return false;
+    }
+    return false;
+}
