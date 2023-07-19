@@ -1,11 +1,14 @@
 const axios = require("axios");
 const { response } = require('../utils');
+const { validate } = require('uuid');
 module.exports= async(req,res,next)=>{
     const {propietario}=req.body;
-    const usuarioEncontrado=true;
-    console.log("Es UUID?",isUUID.test(propietario));
-   // const usuarioEncontrado = axios.get(`http://database:5001/Usuario/${propietario}`);
+
+    if(!isValidMongoDBUUID(propietario)) return response(res,400,'Solicituda incorrecta con el ID');
+    const usuarioEncontrado = axios.get(`http://database:5001/Usuario/${propietario}`);
     if(usuarioEncontrado) return next();
-    else response(res,404,'Error id usuario propietario no encontrado');
+    else return response(res,404,'Error id usuario propietario no encontrado');
 }
-const isUUID =  /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+function isValidMongoDBUUID(id) {
+    return validate(id);
+  }
