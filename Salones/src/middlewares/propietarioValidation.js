@@ -6,7 +6,8 @@ module.exports= async(req,res,next)=>{
 
     if(!isValidMongoDBUUID(propietario)) return response(res,400,'Solicituda incorrecta con el ID');
     const usuarioEncontrado = axios.get(`http://database:5001/Usuario/${propietario}`);
-    if(usuarioEncontrado) return next();
+    console.log(usuarioEncontrado.data);
+    if(usuarioEncontrado.data) return next();
     else return response(res,404,'Error id usuario propietario no encontrado');
 }
 function isValidMongoDBUUID(id){
