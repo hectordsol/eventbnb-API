@@ -8,5 +8,5 @@ router.get('/protected', controllers.getUserToken);
 router.get('/:id', controllers.getUsuario);
 router.put('/:id', middlewares.usuarioValidation, controllers.changeUsuario);
 router.delete('/:id', controllers.deleteUsuario);
-router.post('/',/*middlewares.verificarToken,*/middlewares.authMiddlewares, controllers.createUsuario);
+router.post('/', middlewares.authMiddlewares, controllers.createUsuario);
 module.exports = router;    

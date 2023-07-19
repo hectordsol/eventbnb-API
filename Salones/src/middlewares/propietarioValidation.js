@@ -1,8 +1,8 @@
-const Usuario = require('../../../Usuarios/src/data');
+const axios = require("axios");
 const { response } = require('../utils');
 module.exports= async(req,res,next)=>{
     const {propietario}=req.body;
-    const usuarioEncontrado = await Usuario.get(propietario);
+    const usuarioEncontrado = axios.get(`http://database:5001/Usuario/${propietario}`);
     if(usuarioEncontrado) return next();
-    else response(res,400,'Error id usuario propietario no encontrado');
+    else response(res,404,'Error id usuario propietario no encontrado');
 }
