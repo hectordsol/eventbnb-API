@@ -10,5 +10,6 @@ module.exports= async(req,res,next)=>{
     else return response(res,404,'Error id usuario propietario no encontrado');
 }
 function isValidMongoDBUUID(id) {
+    console.log("validacion de id: ",id)
     return validate(id);
   }
