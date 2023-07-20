@@ -1,4 +1,5 @@
-const {ClientError} =require('../utils/errors')
+const {ClientError} =require('../utils/errors');
+const ObjectId = require('mongoose').Types.ObjectId;
 module.exports= (req,res,next)=>{
     const {id} = req.params;
     if(isValidMongoDBUUID(id)) return next();
