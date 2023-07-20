@@ -4,7 +4,8 @@ const reviewSchema = new Schema(
     _id: String,
     comentario: String,
     puntaje: String,
-    fecha: Date,
+    borrado: {type: Boolean, default: false},
+    fecha: { type: Date, default: Date.now },
     cliente: {type: String, ref: "Usuario"},
     evento: {type: String, ref: "Evento"}
   });
