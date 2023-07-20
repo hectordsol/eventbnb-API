@@ -44,7 +44,7 @@ const usuarioSchema = new Schema(
   };
   usuarioSchema.statics.get = async function (id){
     return await this.findById(id)  //findOne({_id}) es lo mismo, y sirve para otras propiedades
-      .populate("salones",["_id","nombre","domicilio"])
+      .populate("salones")
   };
   usuarioSchema.statics.getByEmail = async function (email){
     console.log(email);
