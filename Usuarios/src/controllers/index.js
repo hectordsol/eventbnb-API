@@ -6,5 +6,6 @@ module.exports={
     getUserToken : catchedAsync(require('./getUserToken')),
     createUsuario: catchedAsync(require('./createUsuario')),
     changeUsuario: catchedAsync(require('./changeUsuario')),
+    changePassword: catchedAsync(require('./changePassword')),
     deleteUsuario: catchedAsync(require('./deleteUsuario')),
 }
