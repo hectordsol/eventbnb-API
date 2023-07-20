@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     const usuarioEncontrado = await axios.get(`http://database:5001/Usuario/${propietario}`);
     console.log(`Salones del usuario ${usuarioEncontrado.data.nombre} :`,usuarioEncontrado.data.salones);
     const newSalon = await Salon.create(salon);
-    console.log(newSalon.data._id);
-    usuarioEncontrado.data.salones.push(newSalon.data._id);
+    console.log(newSalon.data);
+    //usuarioEncontrado.data.salones.push(newSalon.data._id);
     response(res,201,newSalon);
 }
