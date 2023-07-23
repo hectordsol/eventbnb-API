@@ -14,8 +14,6 @@ module.exports = async (req, res) => {
     clienteEncontrado.data.eventos= clienteEncontrado.data.eventos.filter((e)=>e._id!==id);
     //elimino id del array de eventos en el salon
     salonEncontrado.data.eventos  = salonEncontrado.data.eventos.filter((e)=>e._id!==id);
-    console.log("eventos de cliente :",clienteEncontrado.data.eventos);
-    console.log("eventos de salon :",salonEncontrado.data.eventos);
     //actualizo el cliente
     await axios.put(`http://database:5001/Usuario/${clienteEncontrado.data._id}`,clienteEncontrado.data);
     //actualizo el salon

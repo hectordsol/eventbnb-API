@@ -4,9 +4,6 @@ const {response} = require('../utils');
 
 module.exports = async (req, res) => {
     const {nombre_evento,tipo_evento,Fecha_inicio,Fecha_fin,cliente,salon}=req.body;
-    //si llegó hasta acá es porque son id de cliente y salon válidos
-    // Fecha_inicio= new Date(Fecha_inicio);
-    // Fecha_fin= new Date(Fecha_fin);
     let evento=
     {
         nombre_evento,
