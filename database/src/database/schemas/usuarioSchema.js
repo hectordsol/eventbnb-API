@@ -36,7 +36,7 @@ const usuarioSchema = new Schema(
     borrado: {type: Boolean, default: false},
     fechaCreacion: { type: Date, default: Date.now },
     salones: [{type: String, ref: "Salon"}],
-    // reviews: [{type: String, ref: "Review"}]
+    eventos: [{type: String, ref: "Evento"}]
   });
   usuarioSchema.statics.list = async function (){
     return await this.find()
@@ -45,6 +45,7 @@ const usuarioSchema = new Schema(
   usuarioSchema.statics.get = async function (id){
     return await this.findById(id)  //findOne({_id}) es lo mismo, y sirve para otras propiedades
       .populate("salones")
+      .populate("eventos")
   };
   usuarioSchema.statics.getByEmail = async function (email){
     console.log(email);
