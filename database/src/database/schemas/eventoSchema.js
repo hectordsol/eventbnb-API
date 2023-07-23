@@ -36,21 +36,22 @@ const eventoSchema = new Schema(
     fechaInicio,
     fechaFin
   ) {
-    console.log("parametro fecha inicio: ",fechaInicio);
+    fechaInicio= new Date(fechaInicio);
+    fechaFin= new Date(fechaFin);
     return await this.find({
       salon: salonId,
       $or: [
-        // { Fecha_inicio: { $lt: fechaFin }, Fecha_fin: { $gt: fechaInicio } },
-        // { Fecha_inicio: { $gte: fechaInicio, $lt: fechaFin } },
-        // { Fecha_fin: { $gt: fechaInicio, $lte: fechaFin } },
-        // Caso 1: Fecha_inicio y Fecha_fin se encuentran dentro del rango de búsqueda
-        { Fecha_inicio: { $gte: fechaInicio }, Fecha_fin: { $lte: fechaFin } },
-        // Caso 2: Fecha_inicio está dentro del rango de búsqueda y Fecha_fin está después del rango de búsqueda
-        { Fecha_inicio: { $gte: fechaInicio }, Fecha_inicio: { $lte: fechaFin } },
-        // Caso 3: Fecha_fin está dentro del rango de búsqueda y Fecha_inicio está antes del rango de búsqueda
-        { Fecha_fin: { $gte: fechaInicio }, Fecha_fin: { $lte: fechaFin } },
-        // Caso 4: Fecha_inicio y Fecha_fin contienen todo el rango de búsqueda
-        { Fecha_inicio: { $lte: fechaInicio }, Fecha_fin: { $gte: fechaFin } },
+        { Fecha_inicio: { $lt: fechaFin }, Fecha_fin: { $gt: fechaInicio } },
+        { Fecha_inicio: { $gte: fechaInicio, $lt: fechaFin } },
+        { Fecha_fin: { $gt: fechaInicio, $lte: fechaFin } },
+        // // Caso 1: Fecha_inicio y Fecha_fin se encuentran dentro del rango de búsqueda
+        // { Fecha_inicio: { $gte: fechaInicio }, Fecha_fin: { $lte: fechaFin } },
+        // // Caso 2: Fecha_inicio está dentro del rango de búsqueda y Fecha_fin está después del rango de búsqueda
+        // { Fecha_inicio: { $gte: fechaInicio }, Fecha_inicio: { $lte: fechaFin } },
+        // // Caso 3: Fecha_fin está dentro del rango de búsqueda y Fecha_inicio está antes del rango de búsqueda
+        // { Fecha_fin: { $gte: fechaInicio }, Fecha_fin: { $lte: fechaFin } },
+        // // Caso 4: Fecha_inicio y Fecha_fin contienen todo el rango de búsqueda
+        // { Fecha_inicio: { $lte: fechaInicio }, Fecha_fin: { $gte: fechaFin } },
       ],
     });
   };
