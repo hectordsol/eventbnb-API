@@ -4,6 +4,8 @@ const { response } = require('../utils');
 module.exports = async (req, res,next) => {
     
     const {salon,Fecha_inicio, Fecha_fin}=req.body;
+    Fecha_inicio= new Date(Fecha_inicio);
+    Fecha_fin= new Date(Fecha_fin);
     const eventosSuperpuestos = await Evento.verificarFechas(
       salon,
       Fecha_inicio,

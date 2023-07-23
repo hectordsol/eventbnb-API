@@ -3,9 +3,10 @@ const Evento = require('../data');
 const {response} = require('../utils');
 
 module.exports = async (req, res) => {
-    const evento = req.body;
-    const {cliente,salon}=req.body;//si llegó hasta acá es porque son id de cliente y salon válidos
-  
+    const {nombre_evento,tipo_evento,Fecha_inicio,Fecha_fin,cliente,salon}=req.body;//si llegó hasta acá es porque son id de cliente y salon válidos
+    Fecha_inicio= new Date(Fecha_inicio);
+    Fecha_fin= new Date(Fecha_fin);
+    const evento={nombre_evento,tipo_evento,Fecha_inicio,Fecha_fin,cliente,salon};
     const clienteEncontrado = await axios.get(`http://database:5001/Usuario/${cliente}`);//busco cliente
     const salonEncontrado = await axios.get(`http://database:5001/Salon/${salon}`);//busco salon
     const newEvento = await Evento.create(evento);//creo registro de evento en la BD

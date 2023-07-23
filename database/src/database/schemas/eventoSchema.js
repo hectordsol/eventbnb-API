@@ -2,8 +2,8 @@ const {Schema}=require("mongoose");
 const eventoSchema = new Schema(
 {
     nombre_evento: String,
-    tipo_evento: String,
-    Fecha_inicio: String,
+    tipo_evento: Date,
+    Fecha_inicio: Date,
     Fecha_fin: String,
     cliente: {type: String, ref: "Usuario"},
     salon: {type: String, ref: "Salon"},
@@ -36,8 +36,6 @@ const eventoSchema = new Schema(
     fechaInicio,
     fechaFin
   ) {
-    fechaInicio= new Date(fechaInicio);
-    fechaFin= new Date(fechaFin);
     return await this.find({
       salon: salonId,
       $or: [
