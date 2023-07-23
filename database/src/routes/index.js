@@ -9,7 +9,7 @@ router.get("/:model", async (req,res) => {
     if(email) 
         response = await database[model].getByEmail(email)
     else if(salonId&&fechainicio&&fechafin)
-        response = await database[model].verificarFecha(salonId,fechainicio,fechafin)
+        response = await database[model].verificarFechas(salonId,fechainicio,fechafin)
     else
         response = await database[model].list();
     res.status(200).json(response);
