@@ -4,11 +4,13 @@ const database = require("../database");
 const router = Router();
 router.get("/:model", async (req,res) => {
     const {model} = req.params;
-    const {email} = req.query;
+    const {email,salonId,fechainicio,fechafin} = req.query;
     let response = {};
     if(email) 
         response = await database[model].getByEmail(email)
-    else 
+    else if(salonId&&fechainicio&&fechafin)
+        response = await database[model].verificarFecha(salonId,fechainicio,fechafin)
+    else
         response = await database[model].list();
     res.status(200).json(response);
 });

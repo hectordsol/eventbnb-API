@@ -31,11 +31,13 @@ const eventoSchema = new Schema(
     return await this.findByIdAndRemove(id);
   };
   // Función para verificar superposición de fechas
-  eventoSchema.statics.verificarSuperposicionFechas = async function (
+  eventoSchema.statics.verificarFechas = async function (
+    salonId,
     fechaInicio,
     fechaFin
   ) {
     return await this.find({
+      salon: salonId,
       $or: [
         // Caso 1: Fecha_inicio y Fecha_fin se encuentran dentro del rango de búsqueda
         { Fecha_inicio: { $gte: fechaInicio }, Fecha_fin: { $lte: fechaFin } },
