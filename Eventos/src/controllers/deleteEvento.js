@@ -7,8 +7,9 @@ module.exports = async (req, res) => {
     //busco evento
     const eventoEncontrado = await axios.get(`http://database:5001/Evento/${id}`);
     //busco cliente}
-console.log(eventoEncontrado.data);
-   // const clienteEncontrado = await axios.get(`http://database:5001/Usuario/${eventoEncontrado.data.cliente}`);
+    console.log("cliente id ",eventoEncontrado.data.cliente._id);
+    console.log("salon id ",eventoEncontrado.data.salon._id);
+    // const clienteEncontrado = await axios.get(`http://database:5001/Usuario/${eventoEncontrado.data.cliente}`);
     //busco salon
   //  const salonEncontrado = await axios.get(`http://database:5001/Salon/${eventoEncontrado.data.salon}`);
     //elimino id del array de eventos en el cliente
