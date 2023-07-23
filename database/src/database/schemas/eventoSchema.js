@@ -2,7 +2,7 @@ const {Schema}=require("mongoose");
 const eventoSchema = new Schema(
 {
     nombre_evento: String,
-    tipo_evento: Date,
+    tipo_evento: String,
     Fecha_inicio: Date,
     Fecha_fin: String,
     cliente: {type: String, ref: "Usuario"},
