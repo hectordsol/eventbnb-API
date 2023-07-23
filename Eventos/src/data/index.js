@@ -14,8 +14,7 @@ module.exports = {
         return response.data;
     },
     verificarFechas: async(salon,Fecha_inicio,Fecha_fin)=>{
-        const response = await axios.get(`http://database:5001/Evento/?
-        salonId=${salon}&fechainicio=${Fecha_inicio}&fechafin=${Fecha_fin}`);
+        const response = await axios.get(`http://database:5001/Evento/?salonId=${salon}&fechainicio=${Fecha_inicio}&fechafin=${Fecha_fin}`);
         return response.data;
     },
     change: async(id,evento)=>{
