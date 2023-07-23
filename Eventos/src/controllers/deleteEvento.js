@@ -17,9 +17,9 @@ module.exports = async (req, res) => {
     console.log("eventos de cliente :",clienteEncontrado.data.eventos);
     console.log("eventos de salon :",salonEncontrado.data.eventos);
     //actualizo el cliente
-    await axios.put(`http://database:5001/Usuario/${eventoEncontrado.data.cliente._id}`,clienteEncontrado);
+    await axios.put(`http://database:5001/Usuario/${clienteEncontrado.data._id}`,clienteEncontrado.data);
     //actualizo el salon
-    await axios.put(`http://database:5001/Salon/${eventoEncontrado.data.salon._id}`,salonEncontrado);
+    await axios.put(`http://database:5001/Salon/${salonEncontrado.data._id}`,salonEncontrado.data);
     //borro de la base de datos el evento
     const eventoBorrado = await Evento.remove(id);
     let statusCode;
