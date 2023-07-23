@@ -11,11 +11,11 @@ module.exports = async (req, res) => {
     //busco salon
     const salonEncontrado = await axios.get(`http://database:5001/Salon/${eventoEncontrado.data.salon._id}`);
     //elimino id del array de eventos en el cliente
-    console.log("evento de cliente :",clienteEncontrado.data);
-    console.log("evento de salon :",salonEncontrado.data);
- //   clienteEncontrado.data.eventos= clienteEncontrado.data.eventos.filter((e)=>e!==id);
+    clienteEncontrado.data.eventos= clienteEncontrado.data.eventos.filter((e)=>e._id!==id);
     //elimino id del array de eventos en el salon
-//salonEncontrado.data.eventos  = salonEncontrado.data.eventos.filter((e)=>e!==id)
+    salonEncontrado.data.eventos  = salonEncontrado.data.eventos.filter((e)=>e._id!==id);
+    console.log("eventos de cliente :",clienteEncontrado.data.eventos);
+    console.log("evento de salon :",salonEncontrado.data.eventos);
     //actualizo el cliente
    //  await axios.put(`http://database:5001/Usuario/${eventoEncontrado.data.cliente}`,clienteEncontrado);
      //actualizo el salon
