@@ -14,8 +14,8 @@ module.exports = async (req, res) => {
         evento,
     };
     //Creo review en Base de Datos
+    console.log(review);
     const newReview = await Review.create(review);
-    console.log(newReview);
     const eventoEncontrado  
           = await axios.get(`http://database:5001/Evento/${evento}`);//busco evento
 
