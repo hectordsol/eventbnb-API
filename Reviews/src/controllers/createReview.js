@@ -20,11 +20,11 @@ module.exports = async (req, res) => {
     eventoEncontrado.data.review=newReview._id;//Cargo id review en evento
     //actualizo evento con el review
     await axios.put(`http://database:5001/Evento/${evento}`,eventoEncontrado.data);
-    const salonEncontrado    //busco salon
-          = await axios.get(`http://database:5001/Salon/${eventoEncontrado.data.salon}`);
-    salonEncontrado.data.reviews.push(newReview._id);//Cargo id de review en array de reviews
-    //actualizo salon con el review
-    await axios.put(`http://database:5001/Salon/${eventoEncontrado.data.salon}`,salonEncontrado.data);
+    // const salonEncontrado    //busco salon
+    //       = await axios.get(`http://database:5001/Salon/${eventoEncontrado.data.salon}`);
+    // salonEncontrado.data.reviews.push(newReview._id);//Cargo id de review en array de reviews
+    // //actualizo salon con el review
+    // await axios.put(`http://database:5001/Salon/${eventoEncontrado.data.salon}`,salonEncontrado.data);
 
     response(res,201,newReview);
 }
