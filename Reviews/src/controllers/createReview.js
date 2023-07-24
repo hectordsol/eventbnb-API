@@ -3,13 +3,12 @@ const Review = require('../data');
 const {response} = require('../utils');
 
 module.exports = async (req, res) => {
-    const {comentario,puntaje,fecha,cliente,evento}=req.body;
+    const {comentario,puntaje,cliente,evento}=req.body;
     //si llegó hasta acá es porque son id de cliente y evento son válidos
     let review=
     {
         comentario,
         puntaje,
-        fecha,
         cliente,
         evento,
     };
