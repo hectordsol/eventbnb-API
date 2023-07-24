@@ -1,7 +1,6 @@
 const {Schema}=require("mongoose");
 const reviewSchema = new Schema(
 {
-    _id: String,
     comentario: String,
     puntaje: String,
     borrado: {type: Boolean, default: false},
