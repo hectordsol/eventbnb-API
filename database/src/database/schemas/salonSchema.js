@@ -43,7 +43,7 @@ const salonSchema = new Schema(
       ({
         path: "eventos",
         populate: {
-          path: "reviews",
+          path: "review",
           populate: {
             path: "cliente",
           }
