@@ -37,3 +37,9 @@ services:
     build: ./Reviews
     ports:
       - "5005:5005"
+  reservas:
+    container_name: reservas
+    restart: always
+    build: ./Reservas
+    ports:
+      - "5006:5006"

@@ -6,7 +6,6 @@ module.exports = {
         return response.data;
     },
     create: async(review)=>{
-        console.log(review);
         const response = await axios.post("http://database:5001/Review",review);
         return response.data;
     },

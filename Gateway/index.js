@@ -46,7 +46,14 @@ server.use('/reviews', createProxyMiddleware
     }
    )
 );
-
+server.use('/reservas', createProxyMiddleware
+    (
+    {
+    target:"http://reservas:5006",
+    changeOrigin:true
+    }
+    )
+);
 server.use('*',(req, res)=>{
     res.status(405).send('UPS in Gateway');
 });

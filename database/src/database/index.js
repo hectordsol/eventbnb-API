@@ -8,4 +8,5 @@ module.exports ={
     Salon  : conn.model("Salon"  , require("./schemas/salonSchema")),
     Evento : conn.model("Evento" , require("./schemas/eventoSchema")),
     Review : conn.model("Review" , require("./schemas/reviewSchema")),
+    Reserva : conn.model("Reserva" , require("./schemas/reservaSchema"))
 }
