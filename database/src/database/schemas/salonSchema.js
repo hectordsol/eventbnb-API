@@ -32,7 +32,6 @@ const salonSchema = new Schema(
     borrado: {type: Boolean, default: false},
     fechaCreacion: { type: Date, default: Date.now },
     propietario: {type: String, ref: "Usuario"},
-   // reviews: [{type: String, ref: "Review"}],
     eventos: [{type: String, ref: "Evento"}]
 
   });
@@ -42,10 +41,12 @@ const salonSchema = new Schema(
       .populate
       ({
         path: "eventos",
+        select: ["_id","nombre_evento","tipo_evento","Fecha_inicio","Fecha_fin"],
         populate: {
           path: "review",
+          select: ["_id","comentario","puntaje","fecha"],
           populate: {
-            path: "cliente",
+              path: "cliente",
               select:["_id","nombre","apellido"],
           }
         }
@@ -57,10 +58,12 @@ const salonSchema = new Schema(
     .populate
     ({
       path: "eventos",
+      select: ["_id","nombre_evento","tipo_evento","Fecha_inicio","Fecha_fin"],
       populate: {
         path: "review",
+        select: ["_id","comentario","puntaje","fecha"],
         populate: {
-          path: "cliente",
+            path: "cliente",
             select:["_id","nombre","apellido"],
         }
       }
