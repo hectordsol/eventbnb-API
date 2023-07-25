@@ -46,6 +46,7 @@ const salonSchema = new Schema(
           path: "review",
           populate: {
             path: "cliente",
+              select:["_id","nombre","apellido"],
           }
         }
       })
@@ -53,8 +54,17 @@ const salonSchema = new Schema(
   salonSchema.statics.get = async function (id){
     return await this.findById(id)  //findOne({_id}) es lo mismo, y sirve para otras propiedades
     .populate("propietario",["_id","nombre","apellido"])
-    .populate("eventos")
-    //.populate("reviews")
+    .populate
+    ({
+      path: "eventos",
+      populate: {
+        path: "review",
+        populate: {
+          path: "cliente",
+            select:["_id","nombre","apellido"],
+        }
+      }
+    })
   };
   salonSchema.statics.insert = async function (salon){
     return await this.create(salon);
