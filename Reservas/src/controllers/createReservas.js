@@ -15,9 +15,10 @@ module.exports = async (req, res) => {
         cliente,
         evento,
     };
-    console.log(reserva);
+
     const init_point = await mercadoPago(reserva);
     reserva={...reserva,init_point};
+    console.log("probando",reserva);
     const newReserva = await Reserva.create(reserva);
 
     const eventoEncontrado  
