@@ -1,3 +1,5 @@
+require("dotenv").config();
+const URL_FRONT=process.env.URL_FRONT || "http://localhost:3000";
 const mercadopago = require('mercadopago');
 const PROD_ACCESS_TOKEN = "TEST-4465147778510372-071816-112ca063200d513d7b6b5fa6eef87341-164451778";
 
@@ -18,7 +20,7 @@ function mercadoPago({ _id, monto, descripcion }) {
                 }
             ],
             back_urls: {
-                success: "http://localhost:3000",
+                success: URL_FRONT,
                 failure: "www.google.com",
                 pending: "www.google.com"
             },

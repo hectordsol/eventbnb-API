@@ -1,6 +1,8 @@
 const {catchedAsync} = require('../utils');
 
 module.exports = {
+    changeReserva : catchedAsync(require('./changeReserva')),
+    createReserva : catchedAsync(require('./createReservas')),
     getReservas : catchedAsync(require('./getReservas')),
-    createReserva : catchedAsync(require('./createReservas'))
+    getReserva : catchedAsync(require('./getReserva')),
 }

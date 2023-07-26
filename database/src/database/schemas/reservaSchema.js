@@ -3,6 +3,7 @@ const reservaSchema = new Schema(
 {
     Fecha_inicio_hora: Date,
     Fecha_fin_hora: Date,
+    init_point: String,
     cliente: {type: String, ref: "Usuario"},
     salon: {type: String, ref: "Salon"}
   });
