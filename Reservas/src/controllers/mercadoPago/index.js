@@ -1,5 +1,5 @@
 require("dotenv").config();
-const URL_FRONT=process.env.URL_FRONT || "http://localhost:3000";
+const URL_FRONT=/*process.env.URL_FRONT || */"http://localhost:3000";
 const mercadopago = require('mercadopago');
 const PROD_ACCESS_TOKEN = "TEST-4465147778510372-071816-112ca063200d513d7b6b5fa6eef87341-164451778";
 
