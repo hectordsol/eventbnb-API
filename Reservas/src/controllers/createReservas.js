@@ -29,5 +29,5 @@ module.exports = async (req, res) => {
     eventoEncontrado.data.reserva=newReserva._id;//Cargo id reserva en evento
     //actualizo evento con reserva
     await axios.put(`http://database:5001/Evento/${evento}`,eventoEncontrado.data);
-    response(res,201,{ newReserva });
+    response(res,201,newReserva );
 }
