@@ -1,5 +1,7 @@
 require("dotenv").config();
-const URL_FRONT=/*process.env.URL_FRONT || */"http://localhost:3000";
+const COBRADO=/*process.env.URL_COBRADO || */"http://34.125.90.13:5001/Reserva/cobrado";
+const NOCOBRADO=/*process.env.URL_NOCOBRADO || */"http://34.125.90.13:5001/Reserva/";
+const PENDIENTE=/*process.env.URL_PENDIENTE || */"http://34.125.90.13:5001/Reserva/cobrado";
 const mercadopago = require('mercadopago');
 const PROD_ACCESS_TOKEN = "TEST-4465147778510372-071816-112ca063200d513d7b6b5fa6eef87341-164451778";
 
@@ -20,9 +22,9 @@ function mercadoPago({ _id, monto, descripcion }) {
                 }
             ],
             back_urls: {
-                success: URL_FRONT,
-                failure: "www.google.com",
-                pending: "www.google.com"
+                success: COBRADO,
+                failure: NOCOBRADO,
+                pending: PENDIENTE
             },
             auto_return: "approved",
         };
