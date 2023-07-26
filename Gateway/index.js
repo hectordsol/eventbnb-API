@@ -54,6 +54,30 @@ server.use('/reservas', createProxyMiddleware
     }
     )
 );
+server.use('/reservas', createProxyMiddleware
+    (
+    {
+    target:"http://reservas:5006/cobrado",
+    changeOrigin:true
+    }
+    )
+);
+server.use('/reservas', createProxyMiddleware
+    (
+    {
+    target:"http://reservas:5006/pendiente",
+    changeOrigin:true
+    }
+    )
+);
+server.use('/reservas', createProxyMiddleware
+    (
+    {
+    target:"http://reservas:5006/fallado",
+    changeOrigin:true
+    }
+    )
+);
 server.use('*',(req, res)=>{
     res.status(405).send('UPS in Gateway');
 });
