@@ -1,5 +1,5 @@
 const axios = require("axios");
-const {response} = require('../utils');
+// const {response} = require('../utils');
 
 module.exports = async (req, res) => {
     const status = req.query;
@@ -11,5 +11,5 @@ module.exports = async (req, res) => {
     //actualizo reserva para que figure como pagada
     await axios.put(`http://database:5001/Reserva/${status.preference_id}`,reservaEncontrada.data);
     const statusCode=200;
-    response(res.redirect('localhost:3000'), statusCode, reservaEncontrada.data);
+    return res.redirect('localhost:3000');
 }
