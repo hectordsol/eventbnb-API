@@ -7,13 +7,13 @@ const { mercadoPago } = require('./mercadoPago')
 module.exports = async (req, res) => {
     const { Fecha_inicio_hora, Fecha_fin_hora, monto, cliente, evento}=req.body;
     //si llegó hasta acá es porque son id de cliente y evento son válidos
-    const description ="Alquiler de Salon para Evento"
+    const descripcion ="Alquiler de Salon para Evento"
     let reserva=
     {
         Fecha_inicio_hora,
         Fecha_fin_hora,
         monto,
-        description,
+        descripcion,
         cliente,
         evento,
     };
