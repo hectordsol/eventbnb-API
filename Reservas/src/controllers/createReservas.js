@@ -18,8 +18,8 @@ module.exports = async (req, res) => {
         evento,
     };
 
-    const init_point = await mercadoPago(reserva);
-    reserva={...reserva,init_point};
+    const {id,init_point} = await mercadoPago(reserva);
+    reserva={...reserva,init_point,_id:id};
     console.log("probando",reserva);
     const newReserva = await Reserva.create(reserva);
 

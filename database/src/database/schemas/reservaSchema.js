@@ -1,6 +1,7 @@
 const {Schema}=require("mongoose");
 const reservaSchema = new Schema(
 {
+    _id: String,
     Fecha_inicio_hora: Date,
     Fecha_fin_hora: Date,
     monto: String,

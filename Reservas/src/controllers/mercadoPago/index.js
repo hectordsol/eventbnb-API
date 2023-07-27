@@ -30,7 +30,7 @@ function mercadoPago({ _id, monto, descripcion }) {
 
         mercadopago.preferences.create(preference)
             .then((result) => {
-                resolve(result.body.init_point);
+                resolve({init_point:result.body.init_point,id:result.body.id});
             })
             .catch((error) => {
                 reject(new Error("Error en la creacion del init_point de Mercado Pago"));
