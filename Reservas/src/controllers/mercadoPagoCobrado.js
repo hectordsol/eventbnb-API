@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     = await axios.get(`http://database:5001/Reserva/${status.preference_id}`);//busco reserva
     reservaEncontrada.data.pagado=true;//Cambio pagado a true
     //actualizo reserva para que figure como pagada
-    await axios.put(`http://database:5001/Reserva/${status.preference_id}`,reservaEncontrada);
+    await axios.put(`http://database:5001/Reserva/${status.preference_id}`,reservaEncontrada.data);
     const statusCode=200;
     response(res, statusCode, reservaEncontrada);
 }
