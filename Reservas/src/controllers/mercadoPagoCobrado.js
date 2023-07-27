@@ -1,4 +1,4 @@
-// const Reserva = require('../data');
+const axios = require("axios");
 const {response} = require('../utils');
 
 module.exports = async (req, res) => {
@@ -11,5 +11,5 @@ module.exports = async (req, res) => {
     //actualizo reserva para que figure como pagada
     await axios.put(`http://database:5001/Reserva/${status.preference_id}`,reservaEncontrada);
     const statusCode=200;
-    response(res, statusCode, reserva);
+    response(res, statusCode, reservaEncontrada);
 }
