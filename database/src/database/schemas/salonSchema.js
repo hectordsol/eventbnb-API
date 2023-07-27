@@ -62,11 +62,11 @@ const salonSchema = new Schema(
       populate: {
         path: "cliente",
         select:["_id","nombre","apellido"],
-        populate: {
-          path: "review",
-          select: ["_id","comentario","puntaje","fecha"],
-        }
       },
+      populate: {
+        path: "review",
+        select: ["_id","comentario","puntaje","fecha"],
+      }
     })
   };
 
