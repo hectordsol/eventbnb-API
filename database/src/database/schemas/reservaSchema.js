@@ -17,10 +17,11 @@ const reservaSchema = new Schema(
       .populate("evento")
   };
   reservaSchema.statics.get = async function (id){
-    console.log("ID en Schema de reserva: ",id)
-    return await this.findById(id)  //findOne({_id}) es lo mismo, y sirve para otras propiedades
+    const res=await this.findById(id)  //findOne({_id}) es lo mismo, y sirve para otras propiedades
     .populate("cliente",["_id","nombre","apellido"])
     .populate("evento")
+    console.log("ID en Schema de reserva: ",res)
+    return res;
   };
   reservaSchema.statics.insert = async function (reserva){
     return await this.create(reserva);
