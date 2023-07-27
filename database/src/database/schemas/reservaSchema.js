@@ -17,6 +17,7 @@ const reservaSchema = new Schema(
       .populate("evento")
   };
   reservaSchema.statics.get = async function (id){
+    console.log("ID en Schema de reserva: ",id)
     return await this.findById(id)  //findOne({_id}) es lo mismo, y sirve para otras propiedades
     .populate("cliente",["_id","nombre","apellido"])
     .populate("evento")
