@@ -3,7 +3,10 @@ const reservaSchema = new Schema(
 {
     Fecha_inicio_hora: Date,
     Fecha_fin_hora: Date,
+    monto: String,
+    descripcion: String,
     init_point: String,
+    pagado: {type: Boolean, default:false},
     cliente: {type: String, ref: "Usuario"},
     evento: {type: String, ref: "Evento"}
   });
