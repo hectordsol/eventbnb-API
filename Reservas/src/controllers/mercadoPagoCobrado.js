@@ -11,5 +11,5 @@ module.exports = async (req, res) => {
     //actualizo reserva para que figure como pagada
     await axios.put(`http://database:5001/Reserva/${status.preference_id}`,reservaEncontrada.data);
     const statusCode=200;
-    response(res, statusCode, reservaEncontrada.data);
+    response(res.redirect('localhost:3000'), statusCode, reservaEncontrada.data);
 }
