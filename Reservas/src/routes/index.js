@@ -8,9 +8,9 @@ router.get('/', controllers.getReservas);
 router.get('/cobrado', controllers.cobrar);
 router.get('/pendiente', controllers.pendiente);
 router.get('/fallado', controllers.fallado);
-router.get('/:id', middlewares.idValidation,controllers.getReserva);
+router.get('/:id', controllers.getReserva);
 router.put('/:id', 
-    middlewares.idValidation,
+    // middlewares.idValidation,
     middlewares.clienteValidation,
     middlewares.eventoValidation, 
     controllers.changeReserva
